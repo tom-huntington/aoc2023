@@ -1,0 +1,19 @@
+read() 
+# replace R"(?:one|two|three|four|five|six|seven|eight|nine)"
+# with (case "one" -> "one1one" case "two" -> "two2two" case "three" -> "three3three" case "four" -> "four4four" case "five" -> "five5five" case "six" -> "six6six" case "seven" -> "seven7seven" case "eight" -> "eight8eight" case "nine" -> "nine9nine" )
+. (id &&& \x -> x
+replace "one" with "one1one"
+replace "two" with "two2two"
+replace "three" with "three3three"
+replace "four" with "four4four"
+replace "five" with "five5five"
+replace "six" with "six6six"
+replace "seven" with "seven7seven"
+replace "eight" with "eight8eight"
+replace "nine" with "nine9nine"
+)
+. map (_
+. lines 
+. map (_ search_all R"-?\d" . \x -> x[0] $ x[-1] . int)
+. sum
+)

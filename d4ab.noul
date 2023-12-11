@@ -1,0 +1,13 @@
+(l := read() . lines)
+map (\x -> x[8:] split '|' map (_ search_all R"\d+" map int . set) apply && . len)
+. (
+    (map (\x -> int(2 ^ (x - 1))))
+    &&&
+    (_ . enumerate
+    fold (1 .* len(l)) with (\acc, (i, copies) -> (
+        # assume no out of bounds
+        (i+1) til (i+1+copies) each (\idx -> (acc[idx] += acc[i])); acc))
+    )
+)
+map sum
+

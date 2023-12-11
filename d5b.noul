@@ -1,0 +1,31 @@
+l := read();
+# seeds := l . lines . first search_all R'\d+' map int group 2 map (\(s, c) -> [s, s+c]);
+seeds := [
+ 79,
+ 14,
+ 55,
+ 13,
+ 82
+][0:1] map (\x -> [x, x+1]);
+print(F"seeds len: {(seeds)}");
+l split "\n\n" . tail map (lines >>> tail >>>
+    (_ map 
+        (_ search_all R'\d+' map int . (\(dst, src, rng) -> [[dst, dst+rng], [src, src+rng]] )
+        ))
+    )
+# take 2
+fold seeds
+with (\acc, m -> (
+        print(acc flat_map (\(b, s) -> m flat_map (\((db, ds), (sb, ss)) ->(
+        ib:=sb max b;
+        is:=ss min s;
+        ans := [(sb <= b < ss) then ([b, s] map (+(db-sb))) else [b, s] ];
+        ans2 := ([[b, ib min s ], [ib, is min s] map (+(db-sb)), [is max b, s]] filter (apply <));
+ print! F"{ans} {ans2} <-----------";
+if_ (ans != ans2) return;
+assert! ans == ans2;
+        ans2
+    ))) . set . list)
+))
+map first
+fold min

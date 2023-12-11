@@ -1,0 +1,8 @@
+galaxies := read() . lines . enumerate flat_map (\(j, line) -> line . enumerate reject (_ . second == ".") map (\(i, c) -> V(i,j)));
+
+e := galaxies . ((map first) &&& (map second))
+map (_ . unique . sort window 2
+  flat_map (\(a,b) -> (1000000 - 1) .* (b-a-1) prepend 0 ) scan + . (\x -> x append x[-1]));
+
+galaxies = galaxies map (\(x,y) -> V(x+e[0][x], y+e[1][y]));
+galaxies combinations 2 . list map (_ apply - . abs apply + ) . sum

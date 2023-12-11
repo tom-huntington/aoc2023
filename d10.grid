@@ -1,0 +1,5 @@
+PARSE ERROR: call expr; required RightParen
+inside each (\c -> board[c . imag_part][c . real_part] [1;31m=[0m I);
+
+    Assign (at 58:56-57)
+    at first expr in assign LHS (57:1)

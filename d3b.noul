@@ -1,0 +1,13 @@
+x := read();
+width := x locate '\n' + 1;
+position := \x -> [x% width, x // width];
+
+(x locate_all R"\d+" map position) zip (x search_all R"\d+")
+fold dict(x locate_all R"[*]" map position zip repeat([]))
+with (\acc, ((x,y),num) -> (
+    acc && set(((x-1) to (x+len(num))) ** ((y-1) to (y+1))) each (\key -> (
+        acc[key] append= int(num))); acc))
+. values
+filter (len >>> (== 2))
+map product
+. sum

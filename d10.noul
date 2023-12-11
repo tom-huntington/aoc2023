@@ -1,0 +1,88 @@
+input = read();
+stride = input locate "\n" + 1;
+get_transform := (case "F"-> 1j case "J" -> 1j case "L" -> -1j case "7" -> -1j case _ -> 1);
+grid := input . lines . reverse . enumerate
+flat_map (\(i, line) -> line . enumerate map (\(j, c) -> {} if (c == ".") else {complex(j,i): c}))
+fold ||;
+grid . print;
+height := input . len // stride . print;
+start := input locate "S" . ((% stride) &&& (_ // stride . (height - 1 - _))) . complex;
+round_complex := (real_part &&& imag_part) >>> (map round) >>> complex;
+print(start, "start");
+# init := [-1, 1j]; # .in
+init_ex := [-1j, 1]; # .ex
+# init := [-1j, -1]; # .exf
+init_map := {1: {"J", "-", "7"}, -1: {"F", "-", "L"}, 1j: {"|", "F", "7"}, -1j: {"|", "L", "J"}};
+init := [1,-1, 1j, -1j] filter (\d -> if_(d+start in grid) (grid[d+start] in init_map[d]) else_ null );
+orientation := -1;
+print(init, "init", init_ex);
+# init = init_ex;
+
+traversal := repeat(null) lazy_scan [[start, init[0]], [start, init[1]]]
+with (\acc,_ -> acc map (\(p, d) -> (
+  m:=grid[p];
+  print("p", p, "d", d, "m", m, "m in S", m in {"S"});
+  nd := (m in {"S", "-", "|"}) . print then d else (get_transform(m) / d  . round_complex);
+  ret := [nd+p, nd];
+  print("newp", ret[0], "newd", ret[1], "oldd", d, "oldp", p, "m", m);
+  assert(abs(nd) <= 1);
+  assert(ret[0] . (real_part &&& imag_part) map (0 <= _ <= (stride - 1)) . all );
+  assert(ret[0] in grid)
+  return ret;
+)))
+drop 1
+# stop_at (\((ap,ad), (bp,bd)) ->  ((ap == bp) or ((ap + ad) == bp) or (ap == (bp + bd))));
+stop_at (_ map (_ . first == start) . any);
+# flat_traversal := traversal . flatten;
+traversal = traversal flat_map (_ . enumerate map (apply (flip append)));
+
+print(traversal, "traversal");
+# traversal = traversal map (flat_map (\(p, d) -> [[p - d, d], [p,d]]));
+# print(traversal, "traversal");
+
+
+# loop := traversal flat_map (map first) append start . set;
+loop := traversal map first append start . set;
+# loop2 := flat_traversal map first append start . set;
+# print("loop2", loop2, "loop", loop);
+# print(loop2 -- loop, "loop --");
+
+# dup_traversal := ;
+
+# to_flood := traversal flat_map (\((ap, ad), (bp, bd))-> [ap + (ad * complex(0,-orientation)), bp + (bd * complex(0, orientation))])
+# . set
+# filter (\x -> not (x in loop));
+to_flood := traversal map (\(p, d, o) -> p + (d * complex(0, o then 1 else (-1) *orientation)))
+. set
+filter (\x -> not (x in loop));
+# print(set(to_flood2) -- set(to_flood), "asa");
+
+inside:= to_flood
+flat_map (\x-> [1,0,-1] ** [1j,0,-1j] map (\(a,b) -> a+b+x) reject (in loop)) . set
+flat_map (\x-> [1,0,-1] ** [1j,0,-1j] map (\(a,b) -> a+b+x) reject (in loop)) . set
+flat_map (\x-> [1,0,-1] ** [1j,0,-1j] map (\(a,b) -> a+b+x) reject (in loop)) . set
+# flat_map (\x-> [1,0,-1] ** [1j,0,-1j] map (\(a,b) -> a+b+x) filter (\x -> not (x in loop))) . set
+# flat_map (\x-> [1,0,-1] ** [1j,0,-1j] map (\(a,b) -> a+b+x) filter (\x -> not (x in loop))) . set
+# flat_map (\x-> [1,0,-1] ** [1j,0,-1j] map (\(a,b) -> a+b+x) filter (\x -> not (x in loop))) . set
+# flat_map (\x-> [1,0,-1] ** [1j,0,-1j] map (\(a,b) -> a+b+x) filter (\x -> not (x in loop))) . set
+# flat_map (\x-> [1,0,-1] ** [1j,0,-1j] map (\(a,b) -> a+b+x) filter (\x -> not (x in loop))) . set
+# flat_map (\x-> [1,0,-1] ** [1j,0,-1j] map (\(a,b) -> a+b+x) filter (\x -> not (x in loop))) . set
+# flat_map (\x-> [1,0,-1] ** [1j,0,-1j] map (\(a,b) -> a+b+x) filter (\x -> not (x in loop))) . set
+# flat_map (\x-> [1,0,-1] ** [1j,0,-1j] map (\(a,b) -> a+b+x) filter (\x -> not (x in loop))) . set
+# flat_map (\x-> [1,0,-1] ** [1j,0,-1j] map (\(a,b) -> a+b+x) filter (\x -> not (x in loop))) . set
+# flat_map (\x-> [1,0,-1] ** [1j,0,-1j] map (\(a,b) -> a+b+x) filter (\x -> not (x in loop))) . set
+# flat_map (\x-> [1,0,-1] ** [1j,0,-1j] map (\(a,b) -> a+b+x) filter (\x -> not (x in loop))) . set
+# flat_map (\x-> [1,0,-1] ** [1j,0,-1j] map (\(a,b) -> a+b+x) filter (\x -> not (x in loop))) . set
+# flat_map (\x-> [1,0,-1] ** [1j,0,-1j] map (\(a,b) -> a+b+x) filter (\x -> not (x in loop))) . set
+# flat_map (\x-> [1,0,-1] ** [1j,0,-1j] map (\(a,b) -> a+b+x) filter (\x -> not (x in loop))) . set
+;
+# . count;
+print("inside", inside, "inside", inside . count);
+# print(height, stride);
+board := "·" .* (stride ) .* (height);
+assert((inside && loop . count) == 0);
+inside each (\c -> (board[height - 1 - (c . imag_part . round)][c . real_part . round] = "#"));
+loop each (\c -> (board[height - 1 - (c . imag_part . round)][c . real_part . round] = input[(stride * (height - 1 - (c . imag_part . round))) + (c . real_part . round)] 
+. (case "F" -> "┌" case "J" -> "┘" case "7" -> "┐" case "L" -> "└" case "-" -> "─" case "|" -> "│" case "S" -> "S")));
+board map (join "") join "\n" . print;
+inside . count

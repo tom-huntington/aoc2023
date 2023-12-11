@@ -1,0 +1,16 @@
+score := (\counts-> (switch((counts)) case [5] -> 700 case [4,_] -> 600 case [3,2] -> 500 case [3, _, _] -> 400 case [2, 2, _] -> 300 case [2, ..._]-> 200 case [1, ..._] -> 0));
+read()
+replace "T" with "U"
+replace "J" with "W"
+replace "Q" with "X"
+replace "K" with "Y"
+replace "A" with "Z"
+. lines
+map ((\line -> "23456789UXYZ" map (\c -> line replace "W" with c)) &&& (_ replace "W" with "0") &&& id)
+map ((_ map (\x -> x[:5] . sort . group map count . sort (flip -) . score) . max) *** (\x -> x[:5] map ord )  *** (_ search R" \d+" . tail . int))
+. sort
+# sort (\a, b -> first(a) <=> first(b) or second(a)<=>second(b))
+# map (\(a,b,c) -> [a, b map chr join "",c])
+map last
+. enumerate map (\(i,rank) ->(i+1) * rank )
+. sum

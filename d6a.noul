@@ -1,0 +1,5 @@
+read() . lines map (_ search_all R'\d+' map int) . transpose
+map (\(t, d) -> 1 til t map (\h -> h * (t - h))
+    count (>d)
+)
+. product

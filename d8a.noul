@@ -1,0 +1,10 @@
+moves, nodes := read() . lines
+. (\x -> [x[0], x[2:]])
+. ((map (case "R" -> 1 case "L" -> 0)) *** (_ map (_ search R"([A-Z]{3}) = \(([A-Z]{3}), ([A-Z]{3})\)" . tail . (first &&& tail) . (\x -> [x] . dict) ) fold || ));
+moves . cycle
+lazy_scan (["AAA", 0]) with (\move, (pos, i) -> (
+    [nodes[pos][move], i+1]
+))
+drop (first >>> (== "ZZZ")) take 1
+# take (first >>> (!="ZZZ"))
+. last . second - 1

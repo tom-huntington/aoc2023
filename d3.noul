@@ -1,0 +1,10 @@
+x := read();
+width := x locate '\n' + 1;
+position := \x -> [x% width, x // width];
+symbols := x locate_all R"[^0-9.\n]" map position . set;
+
+(x locate_all R"\d+" map position) 
+zip (x search_all R"\d+")
+filter (\((x,y),num) -> symbols && set(((x-1) to (x+len(num))) ** ((y-1) to (y+1))))
+map (second >>> int)
+. sum

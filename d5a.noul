@@ -1,0 +1,21 @@
+l := read();
+seeds := l . lines . first search_all R'\d+' map int group 2 map (\(s, c) -> [s, s+c]);
+maps := l split "\n\n" . tail map (lines >>> tail >>>
+    (_ map 
+        (_ search_all R'\d+' map int . (\(dst, src, rng) -> [[dst, dst+rng], [src, src+rng]] )
+        ))
+    );
+maps
+fold print(seeds)
+with (\acc, m -> (
+        (acc flat_map (\x -> [[... x, 0]] accumulate m with (\ac, ((db, ds), (sb, ss)) -> ac flat_map (\(b, s,t) -> (
+        ib:=sb max b;
+        is:=ss min s;
+        # ans := (sb <= b < ss) then ([b, s, (db-sb)]) else [b, s, t];
+        ans := ([[b, ib min s, t], [ib, is min s, db-sb], [is max b, s, t]] filter (\(a,b,c)-> a < b));
+        ans
+    )) ) 
+)
+) map (\(a,b,c) -> [a+c,b+c] )  ))
+map first
+. min

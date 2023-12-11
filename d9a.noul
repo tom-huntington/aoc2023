@@ -1,0 +1,6 @@
+read() . lines
+map (_ search_all R"-?\d+" map int)
+map (\x -> null . repeat lazy_scan x with (\_, acc -> acc window 2 map (apply (flip -))) take any)
+. print
+map ((map last) >>> sum )
+. sum

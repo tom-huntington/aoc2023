@@ -1,0 +1,5 @@
+b, c := read() . lines map (_ replace R"\s" with "" search R'\d+' . int);
+a := -1;
+[1, -1] map (\s -> (-b) + (s * sqrt(b*b - (4 * a * (-c)))) / (2 * a))
+. (ceil *** floor)
+apply (flip -) + 1

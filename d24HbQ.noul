@@ -1,0 +1,6 @@
+    read() . lines
+    map (\line ->
+        "rgb" map (\c ->
+            line search_all F"(\\d+) {c}" map (second >>> int)
+        ) map max . product
+    ) . sum

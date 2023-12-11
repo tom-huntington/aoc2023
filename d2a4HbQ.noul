@@ -1,0 +1,14 @@
+read() . lines
+map (\line ->
+    "rgb" zip [12, 13, 14] map (\(color, total) ->
+        line search_all F"(\\d+) {color}" map 
+        ((_ . second . int <= total) &&& (second >>> int))
+))
+. ((map (map (map (first)))) &&& (map (map (map (second)))))
+. 
+(
+    (_ map (flatten >>> (fold &)) . enumerate map (\(i, b) -> (i+1)*b))
+    ***
+    (map ((map max) >>> product))
+)
+map sum

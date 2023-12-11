@@ -1,0 +1,19 @@
+l := read();
+seeds := l . lines . first search_all R'\d+' map int group 2 map (\(s, c) -> [s, s+c, 0]);
+maps := l split "\n\n" . tail map (lines >>> tail >>>
+    (_ map 
+        (_ search_all R'\d+' map int . (\(dst, src, rng) -> [dst, [src, src+rng]] )
+        ))
+    );
+maps
+fold print(seeds)
+with (\ranges, mapping -> (
+        mapping fold ranges with (\rng, (db, (sb, ss)) -> rng flat_map (\(b,s,shift) -> (
+        ib:=sb max b;
+        is:=ss min s;
+        [[b, ib min s, shift], [ib, is min s, db-sb], [is max b, s, shift]] filter (\(a,b,c)-> a < b)
+    )) 
+)
+) map (\(a,b,c) -> [a+c,b+c, 0] )  )
+map first
+. min

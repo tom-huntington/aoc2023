@@ -1,0 +1,6 @@
+read() . lines
+map (_ search_all R'(\d+) (\w+)\b'
+    map (\(_, count, color) -> color
+        . (case "blue" -> int(count) <= 14 case "red" -> int(count) <= 12 case "green" -> int(count) <= 13)
+    ) fold &
+) . enumerate map (\(i, b) -> (i+1) * b) . sum

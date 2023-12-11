@@ -1,0 +1,13 @@
+read()
+. lines
+map (\line -> line[8:] . (
+(_ search_all R'\d+') &&& 
+\x -> x search_all R'\b[a-z]+\b')
+. (\(a,b) -> a zip b)
+. ((filter (second >>> (== "blue"))) &&& (filter (second >>> (== "red"))) &&& (filter (second >>> (== "green"))))
+# . (["blue", "red", "green"] map (\color -> (_ filter (second >>> (== color)))) fold &&&) . first
+map (_ map (first >>> int) fold max)
+# map (fold max)
+fold *
+)
+. sum

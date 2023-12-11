@@ -1,0 +1,22 @@
+moves, nodes := read() . lines
+. (\x -> [x[0], x[2:]])
+. ((map (case "R" -> 1 case "L" -> 0)) *** (_ map (_ search R"([A-Z0-9]{3}) = \(([A-Z0-9]{3}), ([A-Z0-9]{3})\)" . tail . (first &&& tail) . (\x -> [x] . dict) ) fold || ));
+
+"SPZ
+GHZ
+NNZ
+HVZ
+ZZZ
+NPZ" . lines
+#; ["22Z"]
+map (\x ->
+moves . cycle
+lazy_scan ([x, 0, []]) with (\move, (pos, i, l) -> (
+	print(l);
+    [nodes[pos][move], i+1, pos[2]=="Z" then (l append [pos,i]) else l]
+))
+drop (third >>> (_ . len == 3)) take 1
+# take (first >>> (!="ZZZ"))
+map (_ . last)# map second . second)
+# . last . second - 1
+)

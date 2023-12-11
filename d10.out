@@ -1,0 +1,437 @@
+{4+9j: "-", 11+3j: "L", 10+2j: "|", 7+6j: "J", 3+9j: "-", 5+3j: "7", 14+9j: "-", 6+0j: "-", 11+0j: "J", 15+0j: "L", 5+9j: "-", 12+6j: "L", 16+2j: "|", 5+5j: "L", 7+3j: "F", 13+6j: "J", 11+1j: "|", 14+7j: "L", 14+0j: "J", 11+2j: "F", 4+4j: "F", 8+7j: "|", 13+4j: "|", 8+0j: "J", 5+4j: "-", 16+6j: "-", 8+3j: "7", 15+5j: "-", 8+6j: "L", 6+8j: "|", 7+0j: "-", 6+9j: "7", 16+1j: "|", 7+9j: "F", 15+2j: "7", 10+8j: "|", 4+1j: "F", 13+0j: "L", 6+6j: "L", 5+7j: "J", 9+3j: "|", 4+6j: "L", 7+8j: "|", 4+0j: "L", 10+0j: "L", 12+2j: "J", 6+4j: "J", 1+8j: "|", 16+5j: "7", 5+0j: "-", 13+7j: "|", 12+8j: "|", 1+7j: "|", 16+3j: "7", 12+7j: "|", 2+9j: "-", 4+3j: "L", 3+6j: "7", 9+2j: "J", 8+8j: "|", 15+9j: "7", 15+8j: "J", 19+4j: "7", 5+8j: "7", 2+5j: "-", 6+5j: "7", 11+7j: "|", 16+0j: "J", 7+2j: "J", 9+8j: "|", 11+9j: "F", 10+3j: "|", 17+3j: "L", 18+4j: "L", 1+6j: "J", 1+5j: "-", 6+7j: "|", 10+7j: "|", 5+2j: "|", 14+1j: "|", 17+4j: "7", 10+9j: "7", 0+5j: "L", 16+4j: "L", 14+5j: "F", 8+2j: "L", 18+3j: "7", 12+5j: "S", 17+5j: "L", 3+8j: "-", 8+1j: "7", 10+6j: "|", 15+3j: "L", 14+8j: "F", 13+5j: "7", 12+9j: "7", 15+1j: "|", 9+6j: "J", 8+9j: "7", 18+2j: "L", 9+4j: "F", 5+1j: "J", 12+4j: "J", 19+3j: "|", 14+4j: "L", 2+6j: "L", 17+6j: "7", 0+6j: "F", 13+9j: "F", 13+2j: "|", 9+9j: "F", 2+7j: "|", 11+6j: "|", 13+3j: "|", 7+1j: "-", 15+6j: "L", 13+1j: "|", 12+3j: "7", 11+5j: "J", 9+7j: "|", 18+5j: "7", 1+9j: "F", 4+7j: "F", 10+4j: "7", 6+1j: "L", 15+7j: "7", 13+8j: "|", 4+8j: "-", 19+2j: "J", 15+4j: "7", 7+7j: "|", 11+4j: "F", 2+8j: "F", 11+8j: "|", 3+5j: "J", 10+1j: "|", 10+5j: "L", 14+2j: "F", 6+2j: "F", 5+6j: "7"}
+10
+12+5i start
+[1, -0+-1j] init [-0+-1j, 1]
+p 12+5i d 1 m S m in S 1
+1
+newp 13+5i newd 1 oldd 1 oldp 12+5i m S
+p 12+5i d -0-1i m S m in S 1
+1
+newp 12+4i newd -0-1i oldd -0-1i oldp 12+5i m S
+p 13+5i d 1 m 7 m in S 0
+0
+newp 13+4i newd 0-1i oldd 1 oldp 13+5i m 7
+p 12+4i d -0-1i m J m in S 0
+0
+newp 11+4i newd -1+0i oldd -0-1i oldp 12+4i m J
+p 13+4i d 0-1i m | m in S 0
+1
+newp 13+3i newd 0-1i oldd 0-1i oldp 13+4i m |
+p 11+4i d -1+0i m F m in S 0
+0
+newp 11+3i newd 0-1i oldd -1+0i oldp 11+4i m F
+p 13+3i d 0-1i m | m in S 0
+1
+newp 13+2i newd 0-1i oldd 0-1i oldp 13+3i m |
+p 11+3i d 0-1i m L m in S 0
+0
+newp 12+3i newd 1+0i oldd 0-1i oldp 11+3i m L
+p 13+2i d 0-1i m | m in S 0
+1
+newp 13+1i newd 0-1i oldd 0-1i oldp 13+2i m |
+p 12+3i d 1+0i m 7 m in S 0
+0
+newp 12+2i newd 0-1i oldd 1+0i oldp 12+3i m 7
+p 13+1i d 0-1i m | m in S 0
+1
+newp 13+0i newd 0-1i oldd 0-1i oldp 13+1i m |
+p 12+2i d 0-1i m J m in S 0
+0
+newp 11+2i newd -1+0i oldd 0-1i oldp 12+2i m J
+p 13+0i d 0-1i m L m in S 0
+0
+newp 14+0i newd 1+0i oldd 0-1i oldp 13+0i m L
+p 11+2i d -1+0i m F m in S 0
+0
+newp 11+1i newd 0-1i oldd -1+0i oldp 11+2i m F
+p 14+0i d 1+0i m J m in S 0
+0
+newp 14+1i newd 0+1i oldd 1+0i oldp 14+0i m J
+p 11+1i d 0-1i m | m in S 0
+1
+newp 11+0i newd 0-1i oldd 0-1i oldp 11+1i m |
+p 14+1i d 0+1i m | m in S 0
+1
+newp 14+2i newd 0+1i oldd 0+1i oldp 14+1i m |
+p 11+0i d 0-1i m J m in S 0
+0
+newp 10+0i newd -1+0i oldd 0-1i oldp 11+0i m J
+p 14+2i d 0+1i m F m in S 0
+0
+newp 15+2i newd 1+0i oldd 0+1i oldp 14+2i m F
+p 10+0i d -1+0i m L m in S 0
+0
+newp 10+1i newd 0+1i oldd -1+0i oldp 10+0i m L
+p 15+2i d 1+0i m 7 m in S 0
+0
+newp 15+1i newd 0-1i oldd 1+0i oldp 15+2i m 7
+p 10+1i d 0+1i m | m in S 0
+1
+newp 10+2i newd 0+1i oldd 0+1i oldp 10+1i m |
+p 15+1i d 0-1i m | m in S 0
+1
+newp 15+0i newd 0-1i oldd 0-1i oldp 15+1i m |
+p 10+2i d 0+1i m | m in S 0
+1
+newp 10+3i newd 0+1i oldd 0+1i oldp 10+2i m |
+p 15+0i d 0-1i m L m in S 0
+0
+newp 16+0i newd 1+0i oldd 0-1i oldp 15+0i m L
+p 10+3i d 0+1i m | m in S 0
+1
+newp 10+4i newd 0+1i oldd 0+1i oldp 10+3i m |
+p 16+0i d 1+0i m J m in S 0
+0
+newp 16+1i newd 0+1i oldd 1+0i oldp 16+0i m J
+p 10+4i d 0+1i m 7 m in S 0
+0
+newp 9+4i newd -1+0i oldd 0+1i oldp 10+4i m 7
+p 16+1i d 0+1i m | m in S 0
+1
+newp 16+2i newd 0+1i oldd 0+1i oldp 16+1i m |
+p 9+4i d -1+0i m F m in S 0
+0
+newp 9+3i newd 0-1i oldd -1+0i oldp 9+4i m F
+p 16+2i d 0+1i m | m in S 0
+1
+newp 16+3i newd 0+1i oldd 0+1i oldp 16+2i m |
+p 9+3i d 0-1i m | m in S 0
+1
+newp 9+2i newd 0-1i oldd 0-1i oldp 9+3i m |
+p 16+3i d 0+1i m 7 m in S 0
+0
+newp 15+3i newd -1+0i oldd 0+1i oldp 16+3i m 7
+p 9+2i d 0-1i m J m in S 0
+0
+newp 8+2i newd -1+0i oldd 0-1i oldp 9+2i m J
+p 15+3i d -1+0i m L m in S 0
+0
+newp 15+4i newd 0+1i oldd -1+0i oldp 15+3i m L
+p 8+2i d -1+0i m L m in S 0
+0
+newp 8+3i newd 0+1i oldd -1+0i oldp 8+2i m L
+p 15+4i d 0+1i m 7 m in S 0
+0
+newp 14+4i newd -1+0i oldd 0+1i oldp 15+4i m 7
+p 8+3i d 0+1i m 7 m in S 0
+0
+newp 7+3i newd -1+0i oldd 0+1i oldp 8+3i m 7
+p 14+4i d -1+0i m L m in S 0
+0
+newp 14+5i newd 0+1i oldd -1+0i oldp 14+4i m L
+p 7+3i d -1+0i m F m in S 0
+0
+newp 7+2i newd 0-1i oldd -1+0i oldp 7+3i m F
+p 14+5i d 0+1i m F m in S 0
+0
+newp 15+5i newd 1+0i oldd 0+1i oldp 14+5i m F
+p 7+2i d 0-1i m J m in S 0
+0
+newp 6+2i newd -1+0i oldd 0-1i oldp 7+2i m J
+p 15+5i d 1+0i m - m in S 0
+1
+newp 16+5i newd 1+0i oldd 1+0i oldp 15+5i m -
+p 6+2i d -1+0i m F m in S 0
+0
+newp 6+1i newd 0-1i oldd -1+0i oldp 6+2i m F
+p 16+5i d 1+0i m 7 m in S 0
+0
+newp 16+4i newd 0-1i oldd 1+0i oldp 16+5i m 7
+p 6+1i d 0-1i m L m in S 0
+0
+newp 7+1i newd 1+0i oldd 0-1i oldp 6+1i m L
+p 16+4i d 0-1i m L m in S 0
+0
+newp 17+4i newd 1+0i oldd 0-1i oldp 16+4i m L
+p 7+1i d 1+0i m - m in S 0
+1
+newp 8+1i newd 1+0i oldd 1+0i oldp 7+1i m -
+p 17+4i d 1+0i m 7 m in S 0
+0
+newp 17+3i newd 0-1i oldd 1+0i oldp 17+4i m 7
+p 8+1i d 1+0i m 7 m in S 0
+0
+newp 8+0i newd 0-1i oldd 1+0i oldp 8+1i m 7
+p 17+3i d 0-1i m L m in S 0
+0
+newp 18+3i newd 1+0i oldd 0-1i oldp 17+3i m L
+p 8+0i d 0-1i m J m in S 0
+0
+newp 7+0i newd -1+0i oldd 0-1i oldp 8+0i m J
+p 18+3i d 1+0i m 7 m in S 0
+0
+newp 18+2i newd 0-1i oldd 1+0i oldp 18+3i m 7
+p 7+0i d -1+0i m - m in S 0
+1
+newp 6+0i newd -1+0i oldd -1+0i oldp 7+0i m -
+p 18+2i d 0-1i m L m in S 0
+0
+newp 19+2i newd 1+0i oldd 0-1i oldp 18+2i m L
+p 6+0i d -1+0i m - m in S 0
+1
+newp 5+0i newd -1+0i oldd -1+0i oldp 6+0i m -
+p 19+2i d 1+0i m J m in S 0
+0
+newp 19+3i newd 0+1i oldd 1+0i oldp 19+2i m J
+p 5+0i d -1+0i m - m in S 0
+1
+newp 4+0i newd -1+0i oldd -1+0i oldp 5+0i m -
+p 19+3i d 0+1i m | m in S 0
+1
+newp 19+4i newd 0+1i oldd 0+1i oldp 19+3i m |
+p 4+0i d -1+0i m L m in S 0
+0
+newp 4+1i newd 0+1i oldd -1+0i oldp 4+0i m L
+p 19+4i d 0+1i m 7 m in S 0
+0
+newp 18+4i newd -1+0i oldd 0+1i oldp 19+4i m 7
+p 4+1i d 0+1i m F m in S 0
+0
+newp 5+1i newd 1+0i oldd 0+1i oldp 4+1i m F
+p 18+4i d -1+0i m L m in S 0
+0
+newp 18+5i newd 0+1i oldd -1+0i oldp 18+4i m L
+p 5+1i d 1+0i m J m in S 0
+0
+newp 5+2i newd 0+1i oldd 1+0i oldp 5+1i m J
+p 18+5i d 0+1i m 7 m in S 0
+0
+newp 17+5i newd -1+0i oldd 0+1i oldp 18+5i m 7
+p 5+2i d 0+1i m | m in S 0
+1
+newp 5+3i newd 0+1i oldd 0+1i oldp 5+2i m |
+p 17+5i d -1+0i m L m in S 0
+0
+newp 17+6i newd 0+1i oldd -1+0i oldp 17+5i m L
+p 5+3i d 0+1i m 7 m in S 0
+0
+newp 4+3i newd -1+0i oldd 0+1i oldp 5+3i m 7
+p 17+6i d 0+1i m 7 m in S 0
+0
+newp 16+6i newd -1+0i oldd 0+1i oldp 17+6i m 7
+p 4+3i d -1+0i m L m in S 0
+0
+newp 4+4i newd 0+1i oldd -1+0i oldp 4+3i m L
+p 16+6i d -1+0i m - m in S 0
+1
+newp 15+6i newd -1+0i oldd -1+0i oldp 16+6i m -
+p 4+4i d 0+1i m F m in S 0
+0
+newp 5+4i newd 1+0i oldd 0+1i oldp 4+4i m F
+p 15+6i d -1+0i m L m in S 0
+0
+newp 15+7i newd 0+1i oldd -1+0i oldp 15+6i m L
+p 5+4i d 1+0i m - m in S 0
+1
+newp 6+4i newd 1+0i oldd 1+0i oldp 5+4i m -
+p 15+7i d 0+1i m 7 m in S 0
+0
+newp 14+7i newd -1+0i oldd 0+1i oldp 15+7i m 7
+p 6+4i d 1+0i m J m in S 0
+0
+newp 6+5i newd 0+1i oldd 1+0i oldp 6+4i m J
+p 14+7i d -1+0i m L m in S 0
+0
+newp 14+8i newd 0+1i oldd -1+0i oldp 14+7i m L
+p 6+5i d 0+1i m 7 m in S 0
+0
+newp 5+5i newd -1+0i oldd 0+1i oldp 6+5i m 7
+p 14+8i d 0+1i m F m in S 0
+0
+newp 15+8i newd 1+0i oldd 0+1i oldp 14+8i m F
+p 5+5i d -1+0i m L m in S 0
+0
+newp 5+6i newd 0+1i oldd -1+0i oldp 5+5i m L
+p 15+8i d 1+0i m J m in S 0
+0
+newp 15+9i newd 0+1i oldd 1+0i oldp 15+8i m J
+p 5+6i d 0+1i m 7 m in S 0
+0
+newp 4+6i newd -1+0i oldd 0+1i oldp 5+6i m 7
+p 15+9i d 0+1i m 7 m in S 0
+0
+newp 14+9i newd -1+0i oldd 0+1i oldp 15+9i m 7
+p 4+6i d -1+0i m L m in S 0
+0
+newp 4+7i newd 0+1i oldd -1+0i oldp 4+6i m L
+p 14+9i d -1+0i m - m in S 0
+1
+newp 13+9i newd -1+0i oldd -1+0i oldp 14+9i m -
+p 4+7i d 0+1i m F m in S 0
+0
+newp 5+7i newd 1+0i oldd 0+1i oldp 4+7i m F
+p 13+9i d -1+0i m F m in S 0
+0
+newp 13+8i newd 0-1i oldd -1+0i oldp 13+9i m F
+p 5+7i d 1+0i m J m in S 0
+0
+newp 5+8i newd 0+1i oldd 1+0i oldp 5+7i m J
+p 13+8i d 0-1i m | m in S 0
+1
+newp 13+7i newd 0-1i oldd 0-1i oldp 13+8i m |
+p 5+8i d 0+1i m 7 m in S 0
+0
+newp 4+8i newd -1+0i oldd 0+1i oldp 5+8i m 7
+p 13+7i d 0-1i m | m in S 0
+1
+newp 13+6i newd 0-1i oldd 0-1i oldp 13+7i m |
+p 4+8i d -1+0i m - m in S 0
+1
+newp 3+8i newd -1+0i oldd -1+0i oldp 4+8i m -
+p 13+6i d 0-1i m J m in S 0
+0
+newp 12+6i newd -1+0i oldd 0-1i oldp 13+6i m J
+p 3+8i d -1+0i m - m in S 0
+1
+newp 2+8i newd -1+0i oldd -1+0i oldp 3+8i m -
+p 12+6i d -1+0i m L m in S 0
+0
+newp 12+7i newd 0+1i oldd -1+0i oldp 12+6i m L
+p 2+8i d -1+0i m F m in S 0
+0
+newp 2+7i newd 0-1i oldd -1+0i oldp 2+8i m F
+p 12+7i d 0+1i m | m in S 0
+1
+newp 12+8i newd 0+1i oldd 0+1i oldp 12+7i m |
+p 2+7i d 0-1i m | m in S 0
+1
+newp 2+6i newd 0-1i oldd 0-1i oldp 2+7i m |
+p 12+8i d 0+1i m | m in S 0
+1
+newp 12+9i newd 0+1i oldd 0+1i oldp 12+8i m |
+p 2+6i d 0-1i m L m in S 0
+0
+newp 3+6i newd 1+0i oldd 0-1i oldp 2+6i m L
+p 12+9i d 0+1i m 7 m in S 0
+0
+newp 11+9i newd -1+0i oldd 0+1i oldp 12+9i m 7
+p 3+6i d 1+0i m 7 m in S 0
+0
+newp 3+5i newd 0-1i oldd 1+0i oldp 3+6i m 7
+p 11+9i d -1+0i m F m in S 0
+0
+newp 11+8i newd 0-1i oldd -1+0i oldp 11+9i m F
+p 3+5i d 0-1i m J m in S 0
+0
+newp 2+5i newd -1+0i oldd 0-1i oldp 3+5i m J
+p 11+8i d 0-1i m | m in S 0
+1
+newp 11+7i newd 0-1i oldd 0-1i oldp 11+8i m |
+p 2+5i d -1+0i m - m in S 0
+1
+newp 1+5i newd -1+0i oldd -1+0i oldp 2+5i m -
+p 11+7i d 0-1i m | m in S 0
+1
+newp 11+6i newd 0-1i oldd 0-1i oldp 11+7i m |
+p 1+5i d -1+0i m - m in S 0
+1
+newp 0+5i newd -1+0i oldd -1+0i oldp 1+5i m -
+p 11+6i d 0-1i m | m in S 0
+1
+newp 11+5i newd 0-1i oldd 0-1i oldp 11+6i m |
+p 0+5i d -1+0i m L m in S 0
+0
+newp 0+6i newd 0+1i oldd -1+0i oldp 0+5i m L
+p 11+5i d 0-1i m J m in S 0
+0
+newp 10+5i newd -1+0i oldd 0-1i oldp 11+5i m J
+p 0+6i d 0+1i m F m in S 0
+0
+newp 1+6i newd 1+0i oldd 0+1i oldp 0+6i m F
+p 10+5i d -1+0i m L m in S 0
+0
+newp 10+6i newd 0+1i oldd -1+0i oldp 10+5i m L
+p 1+6i d 1+0i m J m in S 0
+0
+newp 1+7i newd 0+1i oldd 1+0i oldp 1+6i m J
+p 10+6i d 0+1i m | m in S 0
+1
+newp 10+7i newd 0+1i oldd 0+1i oldp 10+6i m |
+p 1+7i d 0+1i m | m in S 0
+1
+newp 1+8i newd 0+1i oldd 0+1i oldp 1+7i m |
+p 10+7i d 0+1i m | m in S 0
+1
+newp 10+8i newd 0+1i oldd 0+1i oldp 10+7i m |
+p 1+8i d 0+1i m | m in S 0
+1
+newp 1+9i newd 0+1i oldd 0+1i oldp 1+8i m |
+p 10+8i d 0+1i m | m in S 0
+1
+newp 10+9i newd 0+1i oldd 0+1i oldp 10+8i m |
+p 1+9i d 0+1i m F m in S 0
+0
+newp 2+9i newd 1+0i oldd 0+1i oldp 1+9i m F
+p 10+9i d 0+1i m 7 m in S 0
+0
+newp 9+9i newd -1+0i oldd 0+1i oldp 10+9i m 7
+p 2+9i d 1+0i m - m in S 0
+1
+newp 3+9i newd 1+0i oldd 1+0i oldp 2+9i m -
+p 9+9i d -1+0i m F m in S 0
+0
+newp 9+8i newd 0-1i oldd -1+0i oldp 9+9i m F
+p 3+9i d 1+0i m - m in S 0
+1
+newp 4+9i newd 1+0i oldd 1+0i oldp 3+9i m -
+p 9+8i d 0-1i m | m in S 0
+1
+newp 9+7i newd 0-1i oldd 0-1i oldp 9+8i m |
+p 4+9i d 1+0i m - m in S 0
+1
+newp 5+9i newd 1+0i oldd 1+0i oldp 4+9i m -
+p 9+7i d 0-1i m | m in S 0
+1
+newp 9+6i newd 0-1i oldd 0-1i oldp 9+7i m |
+p 5+9i d 1+0i m - m in S 0
+1
+newp 6+9i newd 1+0i oldd 1+0i oldp 5+9i m -
+p 9+6i d 0-1i m J m in S 0
+0
+newp 8+6i newd -1+0i oldd 0-1i oldp 9+6i m J
+p 6+9i d 1+0i m 7 m in S 0
+0
+newp 6+8i newd 0-1i oldd 1+0i oldp 6+9i m 7
+p 8+6i d -1+0i m L m in S 0
+0
+newp 8+7i newd 0+1i oldd -1+0i oldp 8+6i m L
+p 6+8i d 0-1i m | m in S 0
+1
+newp 6+7i newd 0-1i oldd 0-1i oldp 6+8i m |
+p 8+7i d 0+1i m | m in S 0
+1
+newp 8+8i newd 0+1i oldd 0+1i oldp 8+7i m |
+p 6+7i d 0-1i m | m in S 0
+1
+newp 6+6i newd 0-1i oldd 0-1i oldp 6+7i m |
+p 8+8i d 0+1i m | m in S 0
+1
+newp 8+9i newd 0+1i oldd 0+1i oldp 8+8i m |
+p 6+6i d 0-1i m L m in S 0
+0
+newp 7+6i newd 1+0i oldd 0-1i oldp 6+6i m L
+p 8+9i d 0+1i m 7 m in S 0
+0
+newp 7+9i newd -1+0i oldd 0+1i oldp 8+9i m 7
+p 7+6i d 1+0i m J m in S 0
+0
+newp 7+7i newd 0+1i oldd 1+0i oldp 7+6i m J
+p 7+9i d -1+0i m F m in S 0
+0
+newp 7+8i newd 0-1i oldd -1+0i oldp 7+9i m F
+p 7+7i d 0+1i m | m in S 0
+1
+newp 7+8i newd 0+1i oldd 0+1i oldp 7+7i m |
+[[13+5j, 1, 0], [12+4j, -0+-1j, 1], [13+4j, 0+-1j, 0], [11+4j, -1+0j, 1], [13+3j, 0+-1j, 0], [11+3j, 0+-1j, 1], [13+2j, 0+-1j, 0], [12+3j, 1+0j, 1], [13+1j, 0+-1j, 0], [12+2j, 0+-1j, 1], [13+0j, 0+-1j, 0], [11+2j, -1+0j, 1], [14+0j, 1+0j, 0], [11+1j, 0+-1j, 1], [14+1j, 0+1j, 0], [11+0j, 0+-1j, 1], [14+2j, 0+1j, 0], [10+0j, -1+0j, 1], [15+2j, 1+0j, 0], [10+1j, 0+1j, 1], [15+1j, 0+-1j, 0], [10+2j, 0+1j, 1], [15+0j, 0+-1j, 0], [10+3j, 0+1j, 1], [16+0j, 1+0j, 0], [10+4j, 0+1j, 1], [16+1j, 0+1j, 0], [9+4j, -1+0j, 1], [16+2j, 0+1j, 0], [9+3j, 0+-1j, 1], [16+3j, 0+1j, 0], [9+2j, 0+-1j, 1], [15+3j, -1+0j, 0], [8+2j, -1+0j, 1], [15+4j, 0+1j, 0], [8+3j, 0+1j, 1], [14+4j, -1+0j, 0], [7+3j, -1+0j, 1], [14+5j, 0+1j, 0], [7+2j, 0+-1j, 1], [15+5j, 1+0j, 0], [6+2j, -1+0j, 1], [16+5j, 1+0j, 0], [6+1j, 0+-1j, 1], [16+4j, 0+-1j, 0], [7+1j, 1+0j, 1], [17+4j, 1+0j, 0], [8+1j, 1+0j, 1], [17+3j, 0+-1j, 0], [8+0j, 0+-1j, 1], [18+3j, 1+0j, 0], [7+0j, -1+0j, 1], [18+2j, 0+-1j, 0], [6+0j, -1+0j, 1], [19+2j, 1+0j, 0], [5+0j, -1+0j, 1], [19+3j, 0+1j, 0], [4+0j, -1+0j, 1], [19+4j, 0+1j, 0], [4+1j, 0+1j, 1], [18+4j, -1+0j, 0], [5+1j, 1+0j, 1], [18+5j, 0+1j, 0], [5+2j, 0+1j, 1], [17+5j, -1+0j, 0], [5+3j, 0+1j, 1], [17+6j, 0+1j, 0], [4+3j, -1+0j, 1], [16+6j, -1+0j, 0], [4+4j, 0+1j, 1], [15+6j, -1+0j, 0], [5+4j, 1+0j, 1], [15+7j, 0+1j, 0], [6+4j, 1+0j, 1], [14+7j, -1+0j, 0], [6+5j, 0+1j, 1], [14+8j, 0+1j, 0], [5+5j, -1+0j, 1], [15+8j, 1+0j, 0], [5+6j, 0+1j, 1], [15+9j, 0+1j, 0], [4+6j, -1+0j, 1], [14+9j, -1+0j, 0], [4+7j, 0+1j, 1], [13+9j, -1+0j, 0], [5+7j, 1+0j, 1], [13+8j, 0+-1j, 0], [5+8j, 0+1j, 1], [13+7j, 0+-1j, 0], [4+8j, -1+0j, 1], [13+6j, 0+-1j, 0], [3+8j, -1+0j, 1], [12+6j, -1+0j, 0], [2+8j, -1+0j, 1], [12+7j, 0+1j, 0], [2+7j, 0+-1j, 1], [12+8j, 0+1j, 0], [2+6j, 0+-1j, 1], [12+9j, 0+1j, 0], [3+6j, 1+0j, 1], [11+9j, -1+0j, 0], [3+5j, 0+-1j, 1], [11+8j, 0+-1j, 0], [2+5j, -1+0j, 1], [11+7j, 0+-1j, 0], [1+5j, -1+0j, 1], [11+6j, 0+-1j, 0], [0+5j, -1+0j, 1], [11+5j, 0+-1j, 0], [0+6j, 0+1j, 1], [10+5j, -1+0j, 0], [1+6j, 1+0j, 1], [10+6j, 0+1j, 0], [1+7j, 0+1j, 1], [10+7j, 0+1j, 0], [1+8j, 0+1j, 1], [10+8j, 0+1j, 0], [1+9j, 0+1j, 1], [10+9j, 0+1j, 0], [2+9j, 1+0j, 1], [9+9j, -1+0j, 0], [3+9j, 1+0j, 1], [9+8j, 0+-1j, 0], [4+9j, 1+0j, 1], [9+7j, 0+-1j, 0], [5+9j, 1+0j, 1], [9+6j, 0+-1j, 0], [6+9j, 1+0j, 1], [8+6j, -1+0j, 0], [6+8j, 0+-1j, 1], [8+7j, 0+1j, 0], [6+7j, 0+-1j, 1], [8+8j, 0+1j, 0], [6+6j, 0+-1j, 1], [8+9j, 0+1j, 0], [7+6j, 1+0j, 1], [7+9j, -1+0j, 0], [7+7j, 0+1j, 1], [7+8j, 0+-1j, 0], [7+8j, 0+1j, 1]] traversal
+inside {7+4j, 8+4j, 9+5j, 6+3j, 7+5j, 14+3j, 14+6j, 8+5j} inside 8
+·┌────┐┌┐┌┐┌┐┌─┐·····
+·│┌──┐││││││││┌┘·····
+·││·┌┘││││││││└┐·····
+┌┘└┐└┐└┘└┘││└┘#└─┐···
+└──┘·└┐###└┘S┐┌─┐└┐··
+····┌─┘##┌┐┌┘│└┐└┐└┐·
+····└┐#┌┐││└┐│#└┐└┐│·
+·····│┌┘└┘│┌┘│┌┐│·└┘·
+····┌┘└─┐·││·││││····
+····└───┘·└┘·└┘└┘····
+8
