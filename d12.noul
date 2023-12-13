@@ -1,0 +1,16 @@
+read() . lines map (\line -> (
+    P := line search R"[#.?]+" .* 5 join "?" $ ".";
+    N := line search_all R"\d+" map int .* 5 . flatten;
+    dp := memoize \p, n -> ( r:= 0;
+        if_ (p == len(P)) return n == len(N);
+        if_ (P[p] in ".?") r+= dp(p+1, n); # i.e. "?" is "."
+        try ( if_ (
+            P[p] in "#?" and
+            "." not_in P[p:N[n]+p] and P[N[n]+p] != "#"
+        ) r += dp(p+N[n]+1, n+1) ) catch _ -> null;
+        return r
+    );
+	dp(0,0)
+)
+)
+. sum

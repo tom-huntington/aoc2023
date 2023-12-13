@@ -1,0 +1,6 @@
+read() split "\n\n"
+map (_ . lines . (id &&& (_ . transpose map (join "")))
+  map (\x-> 1 til (x . len) map (\i -> x[:i] . reverse zip x[i:] map
+    ((apply zip) >>> (count (apply !=))) . sum . (case 1 -> i case _ -> 0) ) . max )
+  . \(h,v)-> v + (100 * h)
+) . sum

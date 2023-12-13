@@ -1,0 +1,5 @@
+# read() . lines map ((_ search R"[#.?]+" group (\a, b -> (a == ".") xor (b == ".") . not )  reject (first >>> (== "."))) &&& (_ search_all R"\d+" map int))
+read() . lines map (
+(_ search R"[#.?]+" . (\x-> ["#", "."] ^^ (x count (== "?")) map (\y -> x map (\c -> if_(c !="?") c else_ (pop y) ) join "" . group reject (first >>> (== ".")) map count ) ))
+&&& (_ search_all R"\d+" map int))
+map (\(arr, crit) -> arr count (==crit))
