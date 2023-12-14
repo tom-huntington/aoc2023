@@ -1,0 +1,8 @@
+lns := read() . lines;
+lns prepend ("#" .* len(lns[0])) . transpose map (_ join "" . reverse scan 0 with (\acc, c-> (
+    c . (case "O" -> acc+1 case "." -> acc case "#" -> 0)
+)
+)
+window 2 . enumerate filter (_ . second . second . (== 0) )
+map (\(i, (a, _))-> (((i+1)*i//2) - ((i-a+1)*(i-a)//2) ) )
+) map sum . sum

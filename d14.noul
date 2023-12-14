@@ -1,0 +1,18 @@
+cycles := read() . lines . transpose lazy_partial_fold (null . repeat) with (\lns,_-> lns map (\x -> x join "" accumulate (0 til len(x)) with (\ln,_-> ln replace R"\.O" with "O.") )
+. transpose . reverse
+) stride 4 lazy_map (_ . transpose map (join "") join "\n")
+. stop_at_dup
+# take 1
+# map (id &&& (_ . lines . reverse map (_ count "O") . enumerate map (\(i,c)->i+1*c) . sum))
+;
+# . enumerate
+# each (\(i, (x, c)) -> print(x, i, c, "\n"))
+
+start := cycles locate cycles[-1];
+peroid := cycles . len - 1 - start;
+
+# cycles map (_ . lines . reverse map (_ count "O") . enumerate map (\(i,c)->i+1*c) . sum) . print;
+cycles[1000000000 - start % peroid + start]   
+. lines . reverse map (_ count "O") . enumerate map (\(i,c)->i+1*c) . sum
+
+# take 3 each (\x -> print(x, "\n") )
