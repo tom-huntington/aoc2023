@@ -1,0 +1,16 @@
+read() . strip split ","
+map (\x-> (x .= list; l:= pop x; f := if_(l == "-") null else_ (pop x; int(l)); [x fold 0 with \acc, c -> acc + ord(c) * 17 % 256, f, x join ""]
+))
+fold ([] .* 256 ) with (\acc, (i,f,l)-> (
+index := acc[i] locate? (first >>> (==l));
+if_ (f is null)
+(
+    if_(not (index is null)) (remove acc[i][index])
+)
+else_ (
+     if_(not (index is null)) (acc[i][index][1] = f)
+     else_ (acc[i] append= [l,f])
+);
+# acc . enumerate filter (second >>> len) . print;
+acc))
+. enumerate map (\(j, x) -> x . enumerate map (\(i, (_,f))-> j+1 * (i+1) * f)) map sum . sum

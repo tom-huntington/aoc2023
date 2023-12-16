@@ -1,0 +1,14 @@
+N,E,S,W := [complex(0,-1), complex(1,0), complex(0,1), complex(-1,0)];
+rotor := complex(2^((-1)/2), 2^((-1)/2));
+grid := read() . lines . enumerate flat_map (\(y, l) -> l . enumerate map (\(x, c) -> [complex(x,y), c])) . dict;
+# [[[complex(0,0), complex(1,0)]]]
+grid . keys ** [N,E,S,W] filter (\(p, d) -> (p-d) not_in grid) map (\x->[x])
+map (\x -> (seen:={}; x iterate (_ flat_map (\(pos, dir) -> grid !? pos . (
+case "." -> [[pos+dir,dir]]
+case "|" -> if_(dir . real_part) ([N,S] map (\d-> [pos+d, d])) else_ ([[pos+dir, dir]])
+case "-" -> if_(dir . imag_part) ([E,W] map (\d-> [pos+d, d])) else_ ([[pos+dir, dir]])
+case "\\" -> (d := dir / rotor . conjugate * rotor . round; [[pos+d,d]])
+case "/" -> (d := dir * rotor . conjugate / rotor . round; [[pos+d,d]])
+case null -> []
+)) filter (_ . first in grid) filter (\x->(ret:=x not_in seen; seen[x]=null; ret))  ) take len . flatten map first . set . len))
+. max
