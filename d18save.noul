@@ -1,0 +1,11 @@
+# dir := {"R": V(1,0), "D": V(0,1), "L": V(-1,0), "U":V(0,-1)};
+dir := [V(1,0), V(0,1), V(-1,0), V(0,-1)];
+dehex := (\x-> (x split "#" . last)[0:5] . reverse . enumerate map (\(i, c) -> (16^i) * if_ (ord(c) >= ord("a")) (ord(c) - ord("a")+10) else_ int(c) ). sum);
+boundry := read() . lines
+scan [V(0,0)] with (\pos, l -> 1 to dehex(l) #int(l[2:] search R"\d+")
+  map (_ * dir[int(l[-2])] + pos[-1]))
+. flatten . set;
+seen := boundry insert [V(1,1), null];
+[V(1,1)] iterate (_ flat_map (\p -> [1,0,-1]**[1,0,-1] map (_ . vector + p) filter (\x->(b:=x not_in seen; seen insert= [x,null]; b))  ))
+take len;
+seen . len
