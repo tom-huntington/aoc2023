@@ -1,3 +1,1 @@
-read() . lines map (_ split "#" . last) map (\x-> x[0:5] . reverse . enumerate map (\(i, c) -> (16^i) * if_ (ord(c) >= ord("a")) (ord(c) - ord("a")+10) else_ int(c) )
-. sum
-)
+read() . lines map (_ split "#" . last) map (\x-> x[0:5] . reverse . enumerate map (\(i, c) -> (16^i) * if_ (ord(c) >= ord("a")) (ord(c) - ord("a")+10) else_ int(c) ). sum)

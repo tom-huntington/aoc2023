@@ -1,0 +1,15 @@
+dir_ := {"R": V(1,0), "D": V(0,1), "L": V(-1,0), "U":V(0,-1)};
+dir := [V(1,0), V(0,1), V(-1,0), V(0,-1)];
+dehex := (\x-> (x split "#" . last)[0:5] . reverse . enumerate map (\(i, c) -> (16^i) * if_ (ord(c) >= ord("a")) (ord(c) - ord("a")+10) else_ int(c) ). sum);
+read() . lines
+scan [V(0,0), 0, 0] with (\(pos, _, edge), l -> (
+d := dir[int(l[-2])];
+steps := dehex(l);
+ch := "RDLU"[l[-2] . int];
+# ch := l[0];
+# d := dir_[l[0]];
+# steps := l[2:4] . strip . int;
+[d*steps+pos, (if_(d[0]) (steps * pos[1] * d[0] * (-1)) else_ 0),
+if_(ch in ["D", "L"]) (steps + (if_(edge) ({:0,"D":-1,"L":1}[ch]) else_ 0)) else_ 0 ]
+))
+map tail . flatten . sum

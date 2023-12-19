@@ -1,0 +1,40 @@
+flows, parts := read() split "\n\n";
+
+A := \CNDS-> (
+D:="xmas" map (_ .. V(1,4001)) . dict;
+for (CND <- CNDS)
+(
+L,H:=D[CND[0]];
+BND := CND search R"\d+" . int;
+D[CND[0]] = switch(CND[1])
+case "<" -> V(L,min(H,BND)) case ">" -> V(max(L,BND+1), H)
+case "l" -> V(L,min(H,BND+1)) case "g" -> V(max(L,BND), H)
+;
+);
+CNDS . print;
+D . print;
+sum_+= (D . values map (_ apply (flip -) max 0)) . product . print;
+CNDS . R_
+);
+
+R_ := \CNDS -> if_(CNDS.len) 
+(CNDS[:-1] append (CNDS[-1] replace R"<|>" with ("lg"["<" in CNDS[-1]])))
+else_ CNDS;
+
+flows
+. lines map (\line -> line replace R",(\w+)}" with (",s<4001:" $ (line search R",(\w+})$" . last) ))
+join "\n"
+replace "R" with "R_"
+replace "\n" with ";\n"
+replace ":" with "\" . "
+replace "," with " append \""
+replace "[{]" with ":=\\_x_-> (_x_ append \""
+replace "[}]" with "; _x_ . R_)"
+replace "in" with "_in_"
+replace "gcd" with "_gcd_"
+. print
+. eval;
+
+sum_:=0;
+[] . _in_;
+sum_
