@@ -1,0 +1,27 @@
+bricks := read() replace "~" with "),V(" . lines map (\l -> "[V(" $ l $ ")]" . eval)
+. sort (\((_,_,a),_),((_,_,b),_)-> a <=> b)
+map (\(b,s)-> b zip (s-b) map (\(b,l) -> b til (b+l+1) . list) . (\(a,b,c)-> a ** b ** c map vector ))
+enumerate 1
+# map (\(i,e)-> [" ABCDEFG"[i],e ])
+# take 60
+fold {} with
+(\acc,(i,brick)-> (
+0 . iota lazy_map (\idx -> brick map (_ - V(0,0,idx))) take (_ map 
+# (\x-> (b0:=x not_in acc;b1:=x[2] > 0;print(x,b0,b1,acc!?x, i);b0*b1))
+(\x-> x not_in acc and x[2] > 0)
+. all) 
+. last
+# . print
+each (\x -> (acc insert= [x,i];)); acc ) );
+
+l, d := bricks . items sort (\(_,a),(_,b)-> a<=>b) group (\(_,a),(_,b)-> a==b) map transpose
+map (\(l,k)-> [k.first,
+[l map (\cube-> bricks !? (cube+V(0,0,1)) ) reject (is null) reject (==(k[0])) . unique,
+l map (\cube-> bricks !? (cube - V(0,0,1))) reject (is null) reject (== (k[0])) . unique ]] ) . (id &&& dict);
+l reject (_ . second . first map (_ . d . second . count >=2) . all)
+map (\(brick, (above, below))-> (dep:={brick}; [brick] iterate
+(_ flat_map (_ . d . first filter (\y-> y . d . second all (in dep) ) ) . unique
+. (\l->(l each (\x->(dep insert= [x,null];)); l ))
+) take len;
+dep . count - 1 ) )
+. sum

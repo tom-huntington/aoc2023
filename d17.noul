@@ -1,0 +1,2 @@
+costs := read() . lines . enumerate flat_map (\(y,l)-> l . enumerate map (\(x,c)-> V(x,y) .. int(c))) . dict;
+

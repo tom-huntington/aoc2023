@@ -1,0 +1,16 @@
+read() replace "@" with "),V(" . lines map (\l -> "[V(" $ l $ ")]" . eval)
+combinations 2
+map (\((pa,va),(pb,vb))-> (
+r0,r1 := ([va, -vb, pa-pb] . transpose)[:-1] map vector;
+tb := r0/r0[0]-(r1/r1[0]) . (\r-> float(-(r[2]/r[1]))); 
+ta := r0/r0[1]-(r1/r1[1]) . (\r-> float(-(r[2]/r[0]))); 
+# [t, (pb+(t*vb))[:-1]]
+if_(ta<0 or tb<0) return false;
+
+(pb+(tb*vb))[:-1] map
+# (7 <= _ <= 27 )
+(200000000000000 <= _ <= 400000000000000)
+. all
+
+) )
+. count

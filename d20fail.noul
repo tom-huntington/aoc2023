@@ -1,0 +1,27 @@
+
+kvs := read() . lines map (_ split " -> " . (id *** (_ split ", ")));
+conjs := kvs flat_map (\(k,v)-> v map (_ .. k[1:])) . sort group (\a,b-> a[0] == b[0])
+map (\l-> [l[0][0], l map second]) . dict;
+conjunc := \n,fn->(
+recents := conjs[n] map (.. "low") . dict;
+(\_pulse,callee -> (
+print(_pulse, callee, n);
+recents[callee] = _pulse;
+fn(if_(recents . values . all (== "high")) (low+=1; "low") else_ (high+=1;"high"));
+)));
+kvs filter (_ . first . first == "&") map (\(n,dests)->(n[1:] $ F":= conjunc(\"{n[1:]}\", \\pulse->(" $ (dests append "));" join F"(pulse, \"{n}\");" ) ))
+join "" . print. eval;
+print("-----------");
+flipflop := \n,fn->(
+state:=0;
+\pulse,callee -> (
+print(pulse, callee, n);
+if_(pulse == "low") (if_(state) (low+=1;fn("low")) else_ (high+=1;fn("high")); state=1-state;);
+)
+);
+kvs filter (_.first.first == "%") map (\(n,dests)-> ((n[1:]) $ F":= flipflop(\"{n[1:]}\",\\pulse->(" $ (dests append "));" join F"(pulse,\"{n[1:]}\");" ) )) join "\n". print . eval;
+fire := kvs find (_.first == "broadcaster") . second append "" join "(\"low\", \"roadcaster\");";
+print("==============");
+low:=0; high:=0;
+eval(fire.print);
+# inv("high", "c")

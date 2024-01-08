@@ -1,0 +1,37 @@
+
+kvs := read() . lines map (_ split " -> " . (id *** (_ split ", ")));
+inc := \pulse->if_(pulse=="low") (low+=1;) else_ (high+=1);
+conjs := kvs flat_map (\(k,v)-> v map (_ .. k[1:])) . sort group (\a,b-> a[0] == b[0])
+map (\l-> [l[0][0], l map second]) . dict;
+conjunc := \n,fn->(
+print("conjunc", n);
+recents := conjs[n] map (.. "low") . dict;
+(\_pulse,callee,setup -> (
+print(callee,_pulse, n);
+if_(setup) (recents[callee] = _pulse; inc(_pulse)) else_
+(
+#print(n, recents);
+ret:= if_(recents . values . all (== "high")) ("low") else_ ("high");
+fn(ret,1);fn(ret,0););
+)));
+kvs filter (_ . first . first == "&") map (\(n,dests)->(n[1:] $ F":= conjunc(\"{n[1:]}\", \\pulse,setup->(" $ (dests append "));" join F"(pulse, \"{n[1:]}\", setup);" ) ))
+join "" . print. eval;
+print("-----------");
+flipflop := \n,fn->(
+state:=0;
+\pulse,callee,setup -> (
+if_(setup) (print(callee,pulse, n); inc(pulse));
+if_(pulse == "low") (if_(setup) (print("toggle", n, "old", state, "new",1-state); state=1-state) else_ if_(state) (low+=1;fn("low",1);fn("low",0)) else_ (high+=1;fn("high", 1);fn("high",0)););
+)
+);
+kvs filter (_.first.first == "%") map (\(n,dests)-> ((n[1:]) $ F":= flipflop(\"{n[1:]}\",\\pulse,setup->(" $ (dests append "));" join F"(pulse,\"{n[1:]}\", setup);" ) )) join "\n". print . eval;
+fire := kvs find (_.first == "broadcaster") . second append "" join "(\"low\", \"roadcaster\", setup);";
+fire_ := "BROAD:=\\setup->(" $ fire $ ");";
+eval(fire_.print);
+
+print("==============");
+low:=0; high:=0;
+# eval(fire.print);
+BROAD(1);BROAD(0);
+# inv("high", "c")
+print(low, high, low*high);

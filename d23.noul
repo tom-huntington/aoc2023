@@ -1,0 +1,14 @@
+grid := read() . lines . enumerate flat_map (\(y,l)-> l.enumerate reject (_.second =="#") map (\(x,c)->
+[V(x,y),c . (case ">"->V(1,0) case "^"->V(0,-1) case "v"-> V(0,1) case "<" -> V(-1,0) case "."-> null )])) . dict;
+[[V(1,0)]] iterate (\paths-> (paths . (\x->(print(x . count, x.first.len); x))
+flat_map (\path->[V(0,1),V(0,-1),V(1,0),V(-1,0)]
+map (+ (path.last))
+filter (in grid)
+reject (in path)
+filter (\x->(grid[x] is null) or (x-last(path)==grid[x]) )
+. (\x->(switch(len(x)) case 2-> print("split") case 0->print("end") case _->null; x))
+. (\l -> (if_(not l) return l; l[:-1] map (path append _) append (path append= l[-1]; path) ) ) )))
+take_last len
+. last
+. count
+- 1

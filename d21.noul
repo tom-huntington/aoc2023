@@ -1,0 +1,12 @@
+plot := read() . lines . enumerate flat_map (\(y,l)-> l . enumerate reject (_ . second == "#") map (\(x,c)-> [V(x,y), c])) . dict;
+start := plot . items filter (_ . second == "S") . first . first;
+(0 til (2*131+66)) scan ([start]) with
+(\acc,i -> acc flat_map (\pos-> [V(0,1),V(1,0),V(-1,0),V(0,-1)]  map (+ pos)
+filter (_ %% 131 in plot) ) . set )
+map count
+enumerate (-1)
+. print
+filter (_ . first % 131 == 65)
+map second
+prepend (26501365//131)
+. (\(x,y0,y1,y2)-> ((x-1)*(x-2)*y0/((0-1)*(0-2))) -((x-0)*(x-2)*y1/((1-0)*(1-2))) + ((x-0)*(x-1)*y2/((2-0)*(2-1))) )
